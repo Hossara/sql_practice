@@ -1,0 +1,17 @@
+services:
+  test_mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: test_mysql
+    environment:
+      MYSQL_DATABASE: 'test_db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    network_mode: host
+    volumes:
+      - test_mysql_vol:/var/lib/mysql
+
+volumes:
+  test_mysql_vol:
+    driver: local
